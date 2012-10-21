@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数学试题</title>
+<style type="text/css">
+body {
+    font-size: 11pt;
+    font-family: Segoe UI;
+    color: black;
+}
+
+description p {
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+quiz ul{
+    list-style-type:none;
+    -webkit-column-count:3;
+       -moz-column-count:3;
+            column-count:3;
+}
+
+quiz question * {
+    text-align: center;
+    display:inline-block;
+}
+
+quiz question lhs{
+    width: 30px;
+}
+
+quiz question op{
+    width: 10px;
+}
+
+quiz question rhs{
+    width: 30px;
+}
+
+quiz question equals{
+}
+
+quiz question answer_ph{
+    padding-left: 30px;
+}
+
+</style>
+</head>
+<body>
+<description>
+<p>
+{{ range }} 以内的{% for op in operations %}{{op}}{% endfor %}法 {%if limitation %}, 
+无进位{% endif %}
+</p>
+</description>
+<quiz>
+<ul>
+{% for q in quiz %}
+    <li><question>
+            <lhs>{{ q.lhs }}</lhs>
+            <op>{{ q.op }}</op>
+            <rhs>{{ q.rhs }}</rhs>
+            <equals>
+            = (<answer_ph></answer_ph>)
+            </equals>
+        </question>
+{% endfor %}
+</ul>
+</quiz>
+</body>
+</html>
